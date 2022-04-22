@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import ReactDOM from "react-dom";
 import CanvasDraw from "react-canvas-draw";
 
-export default function Draw({ canvas }) {
+export default function Draw({ canvas, onChange }) {
     const getWindowDimensions = () => {
         const hasWindow = typeof window !== "undefined";
         const width = hasWindow ? window.innerWidth : null;
@@ -14,10 +14,7 @@ export default function Draw({ canvas }) {
     };
 
     const { height, width } = getWindowDimensions();
-    // const canvas = useRef();
-    const onChange = () => {
-        console.log(canvas);
-    };
+
     return (
         <CanvasDraw
             ref={canvas}

@@ -17,14 +17,13 @@ export default function Play(props) {
     };
 
     const onSave = (e) => {
-        form.setData("picture", canvas.current.getDataURL());
         e.preventDefault();
         form.post("/save", { replace: false });
     };
 
     return (
         <>
-            <Draw canvas={canvas} />
+            <Draw canvas={canvas} onChange={() => form.setData("picture", canvas.current.getDataURL())} />
             <div className="fixed h-12 top-10 px-8">
                 <button className="w-20 h-full border-2" onClick={onClear}>
                     Clear
